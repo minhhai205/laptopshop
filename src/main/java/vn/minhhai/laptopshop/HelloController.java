@@ -9,4 +9,8 @@ public class HelloController {
     public String index() {
     return "Hello World with minhhai205!";
   }
+  @GetMapping("/user")
+    public String user() {
+    return "Hello World with minhhai205!";
+  }
 }
