@@ -5,12 +5,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloController {
-  @GetMapping("/")
+    @GetMapping("/")
     public String index() {
-    return "Hello World with minhhai205!";
-  }
-  @GetMapping("/user")
+        return "Hello World with minhhai205!";
+    }
+
+    @GetMapping("/user")
     public String user() {
-    return "Hello World with minhhai205!";
-  }
+        return "Hello World with minhhai205!";
+    }
 }
