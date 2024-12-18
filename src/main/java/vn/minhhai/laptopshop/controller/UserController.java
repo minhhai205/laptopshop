@@ -2,10 +2,12 @@ package vn.minhhai.laptopshop.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import vn.minhhai.laptopshop.domain.User;
 import vn.minhhai.laptopshop.service.UserService;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class UserController {
@@ -22,9 +24,16 @@ public class UserController {
         return "hello";
     }
 
-    @RequestMapping("admin/user/create")
-    public String requestMethodName() {
-        return "/admin/user/create";
+    @RequestMapping("/admin/user/create")
+    public String create(Model model) {
+        model.addAttribute("newUser", new User());
+        return "admin/user/create";
+    }
+
+    @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
+    public String createPost(Model model, @ModelAttribute("newUser") User minhhai) {
+        System.out.println("run here" + minhhai);
+        return "hello";
     }
 
 }
