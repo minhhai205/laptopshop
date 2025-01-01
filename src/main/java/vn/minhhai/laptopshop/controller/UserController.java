@@ -11,7 +11,7 @@ import vn.minhhai.laptopshop.service.UserService;
 
 @Controller
 public class UserController {
-    private UserService userService;
+    private final UserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;
@@ -31,8 +31,9 @@ public class UserController {
     }
 
     @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
-    public String createPost(Model model, @ModelAttribute("newUser") User minhhai) {
-        System.out.println("run here" + minhhai);
+    public String createPost(Model model, @ModelAttribute("newUser") User user) {
+        System.out.println("run here" + user);
+        this.userService.handleSaveUser(user);
         return "hello";
     }
 
