@@ -1,5 +1,7 @@
 package vn.minhhai.laptopshop.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,8 +21,11 @@ public class UserController {
 
     @RequestMapping("/")
     public String getHomePage(Model model) {
-        String data = userService.handleHello();
-        model.addAttribute("data", data);
+        List<User> listUsers = this.userService.getAllUsers();
+        List<User> listUsersByEmail = this.userService.getAllUsersByEmail("haiboss2005@gmail.com");
+        System.out.println(listUsers);
+        System.out.println(listUsersByEmail);
+        model.addAttribute("data", "data from controller");
         return "hello";
     }
 

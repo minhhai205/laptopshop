@@ -1,5 +1,7 @@
 package vn.minhhai.laptopshop.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import vn.minhhai.laptopshop.domain.User;
@@ -17,7 +19,12 @@ public class UserService {
         return this.userRepository.save(user);
     }
 
-    public String handleHello() {
-        return "Hello from service";
+    public List<User> getAllUsers() {
+        return this.userRepository.findAll();
     }
+
+    public List<User> getAllUsersByEmail(String email) {
+        return this.userRepository.findByEmail(email);
+    }
+
 }
