@@ -1,6 +1,7 @@
 package vn.minhhai.laptopshop.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,11 @@ public class UserService {
 
     public List<User> getAllUsersByEmail(String email) {
         return this.userRepository.findByEmail(email);
+    }
+
+    public User getUserById(Long id) {
+        Optional<User> result = this.userRepository.findById(id);
+        return result.orElse(null);
     }
 
 }
