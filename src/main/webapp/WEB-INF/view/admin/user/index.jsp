@@ -48,18 +48,24 @@
                                                 <a href="/admin/user/detail/${user.id}" class="btn btn-success">View</a>
                                                 <a href="/admin/user/update/${user.id}"
                                                     class="btn btn-warning  mx-2">Update</a>
-                                                <button class="btn btn-danger">Delete</button>
+                                                <button class="btn btn-danger" button-delete
+                                                    data-id=${user.id}>Delete</button>
                                             </td>
                                         </tr>
                                     </c:forEach>
 
                                 </tbody>
                             </table>
+
+                            <form method="post" id="form-delete-user" data-path="/admin/user/delete/"></form>
                         </div>
 
                     </div>
 
                 </div>
+
+                <script src="/js/admin/user.js"></script>
+
             </body>
 
             </html>

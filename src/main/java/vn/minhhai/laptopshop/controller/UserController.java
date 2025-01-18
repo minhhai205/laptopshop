@@ -79,4 +79,10 @@ public class UserController {
         return "redirect:/admin/user";
     }
 
+    @PostMapping("/admin/user/delete/{id}")
+    public String deletePost(Model model, @PathVariable Long id) {
+        this.userService.deleteUserById(id);
+        return "redirect:/admin/user";
+    }
+
 }

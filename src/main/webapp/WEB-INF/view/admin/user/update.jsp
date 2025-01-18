@@ -29,11 +29,11 @@
                             <form:form method="post" action="/admin/user/update/${newUser.id}" modelAttribute="newUser">
                                 <div class="mb-3">
                                     <label class="form-label">Id:</label>
-                                    <form:input type="id" class="form-control" path="id" />
+                                    <form:input type="id" class="form-control" path="id" disabled="true" />
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Email:</label>
-                                    <form:input type="email" class="form-control" path="email" />
+                                    <form:input type="email" class="form-control" path="email" disabled="true" />
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Password:</label>

@@ -28,9 +28,13 @@ public class UserService {
         return this.userRepository.findByEmail(email);
     }
 
-    public User getUserById(Long id) {
+    public User getUserById(long id) {
         Optional<User> result = this.userRepository.findById(id);
         return result.orElse(null);
+    }
+
+    public void deleteUserById(long id) {
+        this.userRepository.deleteById(id);
     }
 
 }
