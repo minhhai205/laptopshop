@@ -1,4 +1,4 @@
-package vn.minhhai.laptopshop.controller;
+package vn.minhhai.laptopshop.controller.admin;
 
 import java.util.List;
 
