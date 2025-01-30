@@ -10,4 +10,9 @@ public class ProductClientController {
         return "client/product/index";
     }
 
+    @GetMapping("/product/detail")
+    public String getProductDetail() {
+        return "client/product/detail";
+    }
+
 }
