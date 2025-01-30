@@ -16,12 +16,12 @@ import vn.minhhai.laptopshop.service.UploadService;
 import vn.minhhai.laptopshop.service.UserService;
 
 @Controller
-public class UserController {
+public class UserAdminController {
     private final UserService userService;
     private final UploadService uploadService;
     private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserService userService, UploadService uploadService, PasswordEncoder passwordEncoder) {
+    public UserAdminController(UserService userService, UploadService uploadService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.uploadService = uploadService;
         this.passwordEncoder = passwordEncoder;
