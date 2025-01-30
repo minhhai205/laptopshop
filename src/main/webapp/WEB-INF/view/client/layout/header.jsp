@@ -113,7 +113,7 @@
                         <nav class="header__menu">
                             <ul>
                                 <li class="active"><a href="/">Home</a></li>
-                                <li><a href="/">Shop</a></li>
+                                <li><a href="/product">Products</a></li>
                                 <li><a href="#">Pages</a>
                                     <ul class="header__menu__dropdown">
                                         <li><a href="/">Shop Details</a></li>
