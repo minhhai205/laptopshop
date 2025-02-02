@@ -5,12 +5,16 @@ import java.util.List;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
+import jakarta.validation.Valid;
 import vn.minhhai.laptopshop.domain.User;
 import vn.minhhai.laptopshop.service.UploadService;
 import vn.minhhai.laptopshop.service.UserService;
@@ -41,8 +45,20 @@ public class UserAdminController {
     }
 
     @PostMapping(value = "/admin/user/create")
-    public String createPost(Model model, @RequestParam("fileInput") MultipartFile file,
-            @ModelAttribute("newUser") User user) {
+    public String createPost(Model model,
+            @ModelAttribute("newUser") @Valid User user,
+            BindingResult userBindingResult,
+            @RequestParam("fileInput") MultipartFile file) {
+
+        List<FieldError> errors = userBindingResult.getFieldErrors();
+        for (FieldError error : errors) {
+            System.out.println(">>>>" + error.getField() + " - " + error.getDefaultMessage());
+        }
+
+        // validate
+        if (userBindingResult.hasErrors()) {
+            return "admin/user/create";
+        }
 
         String avatar = this.uploadService.handleSaveUploadFile(file, "avatar");
         String hashPassword = this.passwordEncoder.encode(user.getPassword());
