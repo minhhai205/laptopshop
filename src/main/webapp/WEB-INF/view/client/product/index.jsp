@@ -318,9 +318,8 @@
                                                     </ul>
                                                 </div>
                                                 <div class="product__item__text">
-                                                    <a href="/product/detail/${product.id}">
-                                                        <h5>${product.name}</h5>
-                                                    </a>
+
+                                                    <h5><a href="/product/detail/${product.id}">${product.name}</a></h5>
                                                     <h6>${product.shortDesc}</h6>
                                                     <h5 style="padding-bottom: 20px;">
                                                         <fmt:formatNumber type="number" value="${product.price}" /> đ
