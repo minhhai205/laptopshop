@@ -8,12 +8,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.validation.Valid;
 import vn.minhhai.laptopshop.domain.Product;
+import vn.minhhai.laptopshop.domain.User;
 import vn.minhhai.laptopshop.service.ProductService;
 import vn.minhhai.laptopshop.service.UploadService;
 
@@ -62,6 +64,13 @@ public class ProductAdminController {
         this.productService.handleSaveProduct(product);
 
         return "redirect:/admin/product";
+    }
+
+    @GetMapping("/admin/product/detail/{id}")
+    public String detail(Model model, @PathVariable Long id) {
+        Product product = this.productService.getProductById(id);
+        model.addAttribute("product", product);
+        return "admin/product/detail";
     }
 
 }
