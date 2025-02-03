@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 import vn.minhhai.laptopshop.domain.Product;
-import vn.minhhai.laptopshop.domain.User;
 import vn.minhhai.laptopshop.repository.ProductRepository;
 
 @Service
@@ -28,4 +27,9 @@ public class ProductService {
         Optional<Product> result = this.productRepository.findById(id);
         return result.orElse(null);
     }
+
+    public void deleteProductById(long id) {
+        this.productRepository.deleteById(id);
+    }
+
 }

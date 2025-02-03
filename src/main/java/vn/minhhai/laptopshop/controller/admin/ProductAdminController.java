@@ -15,7 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.validation.Valid;
 import vn.minhhai.laptopshop.domain.Product;
-import vn.minhhai.laptopshop.domain.User;
 import vn.minhhai.laptopshop.service.ProductService;
 import vn.minhhai.laptopshop.service.UploadService;
 
@@ -71,6 +70,12 @@ public class ProductAdminController {
         Product product = this.productService.getProductById(id);
         model.addAttribute("product", product);
         return "admin/product/detail";
+    }
+
+    @PostMapping("/admin/product/delete/{id}")
+    public String deletePost(Model model, @PathVariable Long id) {
+        this.productService.deleteProductById(id);
+        return "redirect:/admin/product";
     }
 
 }

@@ -61,15 +61,16 @@
                                                                 class="btn btn-success">View</a>
                                                             <a href="/admin/product/update/${product.id}"
                                                                 class="btn btn-warning  mx-2">Update</a>
-                                                            <a href="/admin/product/delete/${product.id}"
-                                                                class="btn btn-danger">Delete</a>
+                                                            <button class="btn btn-danger" button-delete
+                                                                data-id=${product.id}>Delete</button>
                                                         </td>
                                                     </tr>
-
                                                 </c:forEach>
-
                                             </tbody>
                                         </table>
+
+                                        <form method="post" id="form-delete-product" data-path="/admin/product/delete/">
+                                        </form>
                                     </div>
 
                                 </div>
@@ -83,6 +84,7 @@
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
                 crossorigin="anonymous"></script>
             <script src="/js/scripts.js"></script>
+            <script src="/js/product.js"></script>
         </body>
 
         </html>
