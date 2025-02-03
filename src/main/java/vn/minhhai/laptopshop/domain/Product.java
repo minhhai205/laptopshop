@@ -1,5 +1,6 @@
 package vn.minhhai.laptopshop.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,6 +10,7 @@ import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "products")
@@ -29,10 +31,11 @@ public class Product {
 
     @NotNull
     @NotEmpty(message = "Detailed description cannot be left blank!")
+    @Column(columnDefinition = "MEDIUMTEXT")
     private String detailDesc;
 
     @NotNull
-    @NotEmpty(message = "Short description cannot be left blank!")
+    @Size(min = 1, max = 255, message = "Short description must be between 1 and 255 characters!")
     private String shortDesc;
 
     @NotNull
