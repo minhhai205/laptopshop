@@ -71,8 +71,12 @@
                                     <form:input type="text" path="name" />
                                 </label>
                                 <label>
+                                    <c:set var="nameHasBindError">
+                                        <form:errors path="email" style="color: #dc3545; font-size: 0.8em" />
+                                    </c:set>
                                     <span>Email</span>
                                     <form:input type="email" path="email" />
+                                    ${nameHasBindError}
                                 </label>
                                 <label>
                                     <span>Password</span>
@@ -86,7 +90,7 @@
                                     <form:input type="password" path="confirmPassword" />
                                     ${nameHasBindError}
                                 </label>
-                                <button type="submit" class="submit">Sign Up Now</button>
+                                <button type="submit" class="submit">Sign Up</button>
                             </div>
                         </form:form>
                     </div>
