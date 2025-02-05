@@ -32,10 +32,4 @@ public class ProductClientController {
         return "client/product/detail";
     }
 
-    @GetMapping("/auth/login")
-    public String login(Model model) {
-
-        return "client/auth/login";
-    }
-
 }
