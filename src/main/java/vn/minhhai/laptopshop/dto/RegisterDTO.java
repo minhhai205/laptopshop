@@ -1,5 +1,8 @@
 package vn.minhhai.laptopshop.dto;
 
+import vn.minhhai.laptopshop.service.validator.RegisterChecked;
+
+@RegisterChecked
 public class RegisterDTO {
     private String name;
     private String email;

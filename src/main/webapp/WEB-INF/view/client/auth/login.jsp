@@ -14,6 +14,7 @@
 
                 <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap"
                     rel="stylesheet">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
                 <link rel="stylesheet" href="/client/css/auth.css" type="text/css">
             </head>
@@ -78,8 +79,12 @@
                                     <form:input type="password" path="password" />
                                 </label>
                                 <label>
+                                    <c:set var="nameHasBindError">
+                                        <form:errors path="confirmPassword" style="color: #dc3545; font-size: 0.8em" />
+                                    </c:set>
                                     <span>Confirm Password</span>
                                     <form:input type="password" path="confirmPassword" />
+                                    ${nameHasBindError}
                                 </label>
                                 <button type="submit" class="submit">Sign Up Now</button>
                             </div>
@@ -88,7 +93,8 @@
 
 
                 </div>
-
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+                    crossorigin="anonymous"></script>
                 <script src="/client/js/auth.js"></script>
 
             </body>
