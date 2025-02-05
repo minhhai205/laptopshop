@@ -62,7 +62,7 @@
                                                     <label class="form-label">Price:</label>
                                                     <form:input type="number"
                                                         class="form-control ${not empty nameHasBindError ?  'is-invalid' : ''} "
-                                                        path="price" />
+                                                        path="price" step="any" />
                                                     ${nameHasBindError}
                                                 </div>
                                                 <div class="mb-3 col-12">
