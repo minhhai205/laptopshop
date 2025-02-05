@@ -1,4 +1,4 @@
-package vn.minhhai.laptopshop.domain.dto;
+package vn.minhhai.laptopshop.dto;
 
 public class RegisterDTO {
     private String name;
