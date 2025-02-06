@@ -21,28 +21,36 @@
 
             <body>
                 <div class="cont">
-                    <form action="">
+                    <form method="post" action="/auth/login">
                         <div class="form sign-in">
                             <h2>Sign In</h2>
                             <label>
+                                <c:if test="${param.error != null}">
+                                    <div class="my-2" style="color: red;">Invalid email or password!</div>
+                                </c:if>
+                            </label>
+                            <label>
                                 <span>Email Address</span>
-                                <input type="email" name="email" />
+                                <input type="email" name="username" />
                             </label>
                             <label>
                                 <span>Password</span>
                                 <input type="password" name="password" />
                             </label>
+                            <div>
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                            </div>
                             <button class="submit" type="submit">Sign In</button>
 
 
-                            <div class="social-media">
+                            <!-- <div class="social-media">
                                 <ul>
                                     <li><img src="images/facebook.png"></li>
                                     <li><img src="images/twitter.png"></li>
                                     <li><img src="images/linkedin.png"></li>
                                     <li><img src="images/instagram.png"></li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </form>
 
