@@ -17,14 +17,14 @@
                     rel="stylesheet">
 
                 <!-- Css Styles -->
-                <link rel="stylesheet" href="client/css/bootstrap.min.css" type="text/css">
-                <link rel="stylesheet" href="client/css/font-awesome.min.css" type="text/css">
-                <link rel="stylesheet" href="client/css/elegant-icons.css" type="text/css">
-                <link rel="stylesheet" href="client/css/nice-select.css" type="text/css">
-                <link rel="stylesheet" href="client/css/jquery-ui.min.css" type="text/css">
-                <link rel="stylesheet" href="client/css/owl.carousel.min.css" type="text/css">
-                <link rel="stylesheet" href="client/css/slicknav.min.css" type="text/css">
-                <link rel="stylesheet" href="client/css/style.css" type="text/css">
+                <link rel="stylesheet" href="/client/css/bootstrap.min.css" type="text/css">
+                <link rel="stylesheet" href="/client/css/font-awesome.min.css" type="text/css">
+                <link rel="stylesheet" href="/client/css/elegant-icons.css" type="text/css">
+                <link rel="stylesheet" href="/client/css/nice-select.css" type="text/css">
+                <link rel="stylesheet" href="/client/css/jquery-ui.min.css" type="text/css">
+                <link rel="stylesheet" href="/client/css/owl.carousel.min.css" type="text/css">
+                <link rel="stylesheet" href="/client/css/slicknav.min.css" type="text/css">
+                <link rel="stylesheet" href="/client/css/style.css" type="text/css">
 
             </head>
 
@@ -346,14 +346,14 @@
 
                 <jsp:include page="../layout/footer.jsp" />
                 <!-- Js Plugins -->
-                <script src="client/js/jquery-3.3.1.min.js"></script>
-                <script src="client/js/bootstrap.min.js"></script>
-                <script src="client/js/jquery.nice-select.min.js"></script>
-                <script src="client/js/jquery-ui.min.js"></script>
-                <script src="client/js/jquery.slicknav.js"></script>
-                <script src="client/js/mixitup.min.js"></script>
-                <script src="client/js/owl.carousel.min.js"></script>
-                <script src="client/js/main.js"></script>
+                <script src="/client/js/jquery-3.3.1.min.js"></script>
+                <script src="/client/js/bootstrap.min.js"></script>
+                <script src="/client/js/jquery.nice-select.min.js"></script>
+                <script src="/client/js/jquery-ui.min.js"></script>
+                <script src="/client/js/jquery.slicknav.js"></script>
+                <script src="/client/js/mixitup.min.js"></script>
+                <script src="/client/js/owl.carousel.min.js"></script>
+                <script src="/client/js/main.js"></script>
 
             </body>
 
