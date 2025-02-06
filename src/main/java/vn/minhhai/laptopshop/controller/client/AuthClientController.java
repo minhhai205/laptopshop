@@ -50,7 +50,7 @@ public class AuthClientController {
 
         this.userService.handleSaveUser(user);
 
-        return "client/auth/login";
+        return "redirect:/auth/login";
     }
 
 }
