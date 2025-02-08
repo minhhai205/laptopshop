@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.session.security.web.authentication.SpringSessionRememberMeServices;
 
 import jakarta.servlet.DispatcherType;
@@ -29,6 +30,11 @@ public class SecurityConfiguration {
     public UserDetailsService userDetailsService(UserService userService) {
         return new CustomUserDetailsService(userService);
     }
+
+//     @Bean
+//     public AuthenticationSuccessHandler myAuthenticationSuccessHandler() {
+//         return new CustomSuccessHandler();
+//     }
 
     @Bean
     public DaoAuthenticationProvider authProvider(
@@ -62,7 +68,7 @@ public class SecurityConfiguration {
                         .anyRequest().authenticated())
                 .sessionManagement((sessionManagement) -> sessionManagement
                         .sessionCreationPolicy(SessionCreationPolicy.ALWAYS) // tạo mới nếu không có session
-                        .invalidSessionUrl("/logout?expired")   // logout nếu không có
+                        .invalidSessionUrl("/auth/logout?expired")   // logout nếu không có
                         .maximumSessions(1)                     // tối đa 1 tài khoản đăng nhập trên 1 máy
                         .maxSessionsPreventsLogin(false))       // người sau vào thì người trước logout
                         .logout(logout -> logout.deleteCookies("JSESSIONID").invalidateHttpSession(true))
@@ -72,6 +78,8 @@ public class SecurityConfiguration {
                         .loginPage("/auth/login")
                         .defaultSuccessUrl("/")
                         .failureUrl("/auth/login?error")
+                        //  chưa có hành động chuyển hướng trong CustomSuccessHandler nên sẽ bị đứng khi login thành công 
+                        // .successHandler(myAuthenticationSuccessHandler()) 
                         .permitAll())
                 .logout(formLogout -> formLogout
                         .logoutUrl("/auth/logout")

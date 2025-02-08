@@ -94,7 +94,7 @@
                                 <c:if test="${not empty pageContext.request.userPrincipal}">
                                     <div class="header__top__right__language">
                                         <img src="/client/img/language.png" alt="">
-                                        <div>Account</div>
+                                        <div>${sessionScope.name}</div>
                                         <span class="arrow_carrot-down"></span>
                                         <ul>
                                             <li><a href="#">Ordered</a></li>
@@ -103,7 +103,7 @@
                                                 <form method="post" action="/auth/logout">
                                                     <input type="hidden" name="${_csrf.parameterName}"
                                                         value="${_csrf.token}" />
-                                                    <button>Logout</button>
+                                                    <button type="submit">Logout</button>
                                                 </form>
                                             </li>
                                         </ul>
