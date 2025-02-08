@@ -85,18 +85,31 @@
                                     <a href="#"><i class="fa fa-linkedin"></i></a>
                                     <a href="#"><i class="fa fa-pinterest-p"></i></a>
                                 </div>
-                                <div class="header__top__right__language">
-                                    <img src="/client/img/language.png" alt="">
-                                    <div>English</div>
-                                    <span class="arrow_carrot-down"></span>
-                                    <ul>
-                                        <li><a href="#">Spanis</a></li>
-                                        <li><a href="#">English</a></li>
-                                    </ul>
-                                </div>
-                                <div class="header__top__right__auth">
-                                    <a href="/auth/login"><i class="fa fa-user"></i> Login</a>
-                                </div>
+
+                                <c:if test="${empty pageContext.request.userPrincipal}">
+                                    <div class="header__top__right__auth">
+                                        <a href="/auth/login"><i class="fa fa-user"></i> Login</a>
+                                    </div>
+                                </c:if>
+                                <c:if test="${not empty pageContext.request.userPrincipal}">
+                                    <div class="header__top__right__language">
+                                        <img src="/client/img/language.png" alt="">
+                                        <div>Account</div>
+                                        <span class="arrow_carrot-down"></span>
+                                        <ul>
+                                            <li><a href="#">Ordered</a></li>
+                                            <li><a href="#">Setting</a></li>
+                                            <li>
+                                                <form method="post" action="/auth/logout">
+                                                    <input type="hidden" name="${_csrf.parameterName}"
+                                                        value="${_csrf.token}" />
+                                                    <button>Logout</button>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </c:if>
+
                             </div>
                         </div>
                     </div>

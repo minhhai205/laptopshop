@@ -363,6 +363,10 @@ ol {
 
 .header__top__right__language img {
 	margin-right: 6px;
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+	object-fit: cover;
 }
 
 .header__top__right__language div {
@@ -405,6 +409,14 @@ ol {
 	font-size: 14px;
 	color: #ffffff;
 	padding: 5px 10px;
+}
+
+.header__top__right__language ul li button {
+	font-size: 14px;
+	padding: 3px 10px;
+	background-color: transparent;
+	border: none;
+	color: #ffffff;
 }
 
 .header__top__right__auth {

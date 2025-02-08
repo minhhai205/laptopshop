@@ -45,15 +45,19 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(authorize -> authorize
                         .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.INCLUDE)
                         .permitAll()
-                        .requestMatchers("/", "/login", "/product/**", "/error/**",
+                        .requestMatchers("/", "/login", "/error/**",
                                 "/client/**", "/css/**", "/js/**", "/images/**")
                         .permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .formLogin(formLogin -> formLogin
                         .loginPage("/auth/login")
+                        .defaultSuccessUrl("/")
                         .failureUrl("/auth/login?error")
-                        .permitAll());
+                        .permitAll())
+                .logout(formLogout -> formLogout
+                        .logoutUrl("/auth/logout")
+                        .logoutSuccessUrl("/"));
         return http.build();
     }
 }
