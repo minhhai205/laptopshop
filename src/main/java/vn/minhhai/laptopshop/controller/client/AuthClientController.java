@@ -53,4 +53,9 @@ public class AuthClientController {
         return "redirect:/auth/login";
     }
 
+    @GetMapping("/auth/403")
+    public String getDenyPage() {
+        return "client/auth/403";
+    }
+
 }

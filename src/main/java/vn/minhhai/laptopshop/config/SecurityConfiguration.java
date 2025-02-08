@@ -57,7 +57,9 @@ public class SecurityConfiguration {
                         .permitAll())
                 .logout(formLogout -> formLogout
                         .logoutUrl("/auth/logout")
-                        .logoutSuccessUrl("/"));
+                        .logoutSuccessUrl("/"))
+                .exceptionHandling(ex -> ex
+                        .accessDeniedPage("/auth/403"));
         return http.build();
     }
 }
