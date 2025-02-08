@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -59,6 +60,12 @@ public class SecurityConfiguration {
                         .permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated())
+                .sessionManagement((sessionManagement) -> sessionManagement
+                        .sessionCreationPolicy(SessionCreationPolicy.ALWAYS) // tạo mới nếu không có session
+                        .invalidSessionUrl("/logout?expired")   // logout nếu không có
+                        .maximumSessions(1)                     // tối đa 1 tài khoản đăng nhập trên 1 máy
+                        .maxSessionsPreventsLogin(false))       // người sau vào thì người trước logout
+                        .logout(logout -> logout.deleteCookies("JSESSIONID").invalidateHttpSession(true))
                 .rememberMe(rememberMe -> rememberMe
                         .rememberMeServices(rememberMeServices()))
                 .formLogin(formLogin -> formLogin
